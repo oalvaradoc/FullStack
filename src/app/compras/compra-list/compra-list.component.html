@@ -1,0 +1,17 @@
+<table class="table table-hover">
+  <tr *ngFor="let pd of service.list">
+    <td (click)="poblarFormulario(pd)">
+      {{pd.placaVenta}}
+    </td>
+    <td (click)="poblarFormulario(pd)">
+        {{pd.modeloPlacaVenta}}
+      </td>
+      <td (click)="poblarFormulario(pd)">
+          {{pd.nomCliente}}
+        </td>
+        <td>
+          <i class="far fa-trash-alt fa-lg text-danger" (click)= "onDelete(pd.idVentaPk)"></i>
+        </td>
+
+  </tr>
+</table>

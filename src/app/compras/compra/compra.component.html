@@ -1,0 +1,90 @@
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="idVentaPk" [value]="service.formData.idVentaPk">
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="fas fa-user-circle" [class.green-icon]="placaVenta.valid" [class.red-icon]="placaVenta.invalid && placaVenta.touched"></i>
+          </div>
+        </div>
+        <input name="placaVenta" #placaVenta="ngModel" [(ngModel)]="service.formData.placaVenta" class="form-control"
+          placeholder="Placa del vehiculo" required maxlength="6" minlength="6">
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <div class="input-group-text bg-white">
+            <i class="far fa-credit-card"  [class.green-icon]="modeloPlacaVenta.valid" [class.red-icon]="modeloPlacaVenta.invalid && modeloPlacaVenta.touched"></i>
+          </div>
+        </div>
+        <input name="modeloPlacaVenta" #modeloPlacaVenta="ngModel" [(ngModel)]="service.formData.modeloPlacaVenta" 
+        class="form-control" placeholder="Modelo del vehiculo" required maxlength="4" minlength="4">
+      </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+              <i class="fas fa-calendar-alt"  [class.green-icon]="nomCliente.valid" [class.red-icon]="nomCliente.invalid && nomCliente.touched"></i>
+            </div>
+          </div>
+          <input name="nomCliente" #nomCliente="ngModel" [(ngModel)]="service.formData.nomCliente" class="form-control"
+            placeholder="Nombre del propietario" required maxlength="512">
+        </div>
+      </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-7">
+          <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                  <i class="fas fa-key"  [class.green-icon]="idCliente.valid" [class.red-icon]="idCliente.invalid && idCliente.touched"></i>
+                </div>
+              </div>
+              <input name="idCliente" #idCliente="ngModel" [(ngModel)]="service.formData.idCliente" class="form-control" placeholder="Documento"
+              required  maxlength="16" minlength="3">
+            </div>
+      </div>
+      <div class="form-group col-md-5">
+          <div class="input-group">
+              <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                  <i class="far fa-credit-card"  [class.green-icon]="celCliente.valid" [class.red-icon]="celCliente.invalid && celCliente.touched"></i>
+                </div>
+              </div>
+              <input name="celCliente" #celCliente="ngModel" [(ngModel)]="service.formData.celCliente" 
+              class="form-control" placeholder="Teléfono" required maxlength="16">
+            </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+              <i class="far fa-credit-card"  [class.green-icon]="dirCliente.valid" [class.red-icon]="dirCliente.invalid && dirCliente.touched"></i>
+            </div>
+          </div>
+          <input name="dirCliente" #dirCliente="ngModel" [(ngModel)]="service.formData.dirCliente" 
+          class="form-control" placeholder="Dirección de residencia" required maxlength="512">
+        </div>
+      </div>
+    <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <div class="input-group-text bg-white">
+              <i class="far fa-credit-card"  [class.green-icon]="mailCliente.valid" [class.red-icon]="mailCliente.invalid && mailCliente.touched"></i>
+            </div>
+          </div>
+          <input name="mailCliente" #mailCliente="ngModel" [(ngModel)]="service.formData.mailCliente" 
+          class="form-control" placeholder="Correo" required maxlength="256">
+        </div>
+      </div>
+
+
+    <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" type="submit" [disabled]="form.invalid"><i class="fas fa-database"></i> Ingresar</button>
+    </div>
+  </form>
